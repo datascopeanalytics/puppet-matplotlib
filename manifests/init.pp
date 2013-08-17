@@ -1,11 +1,17 @@
 class matplotlib (
-  $provider = $matplotlib::params::provider,
-  $install_latex = $matplotlib::params::include_latex,
+  $install_latex = $matplotlib::params::install_latex,
 ) inherits matplotlib::params {
 
-  case $provider {
-    "pip":   { include matplotlib::pip }
-    default: { fail("non-pip installation not supported yet") }
+  # install whatever requirements are necessary
+  class { "matplotlib::requirements":
+    install_latex => $install_latex,
+  }
+  
+  # install matplotlib via pip
+  package { "matplotlib":
+    ensure   => installed,
+    provider => pip,
+    require  => Class["Matplotlib::Requirements"],
   }
   
 }
