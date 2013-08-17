@@ -10,6 +10,15 @@ is not required (e.g., avoid installing X11). Basic usage:
 class { 'matplotlib': }
 ```
 
+Want to use LaTeX to manage all of the
+[text layout in matplotlib](http://matplotlib.org/users/usetex.html)?
+
+```ruby
+class { 'matplotlib':
+  install_latex => true,
+}
+```
+
 If you want to install matplotlib, GUI and all, it is fairly
 straightforward to do so with
 [any standard linux package manager](http://matplotlib.org/users/installing.html#build-requirements).

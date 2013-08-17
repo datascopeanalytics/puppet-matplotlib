@@ -8,6 +8,8 @@ class matplotlib::params {
   
   case $operatingsystem {
     /(?i-mx:ubuntu|debian)/:   {
+
+      # tested on Ubuntu 12.04
       $numpy    = 'python-numpy'
       $freetype = 'libfreetype6-dev'
       $png      = 'libpng12-dev'
