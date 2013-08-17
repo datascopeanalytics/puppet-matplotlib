@@ -1,4 +1,12 @@
-class matplotlib::pip_requirements inherits matplotlib::params {
+# all requirements come from
+# http://matplotlib.org/users/installing.html#build-requirements
+#
+# Only things that are not already shipped with matplotlib and are not
+# required by the GUI are included here. The goal is for this to be as
+# lightweight as possible by default.
+class matplotlib::pip_requirements (
+  $install_latex = $matplotlib::params::install_latex,
+) inherits matplotlib::params {
 
   if ! defined( Package[$numpy] ) {
     package { $numpy:
@@ -64,7 +72,6 @@ class matplotlib::pip_requirements inherits matplotlib::params {
   }
 
   if $install_latex {
-
     if ! defined( Package[$latex] ) {
       package { $latex:
         ensure   => installed,
@@ -75,7 +82,6 @@ class matplotlib::pip_requirements inherits matplotlib::params {
         ensure   => installed,
       }
     }
-
   }
   
 }

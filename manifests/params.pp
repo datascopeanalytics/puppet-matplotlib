@@ -21,7 +21,7 @@ class matplotlib::params {
   }
 
   # latex package name for particular system
-  $install_latex = true
+  $install_latex = false
   $latex = $operatingsystem ? {
     /(?i-mx:ubuntu|debian)/ => 'texlive',
     default                 => fail($_os_failure),
