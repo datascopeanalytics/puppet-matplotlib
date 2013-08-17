@@ -4,7 +4,7 @@
 # Only things that are not already shipped with matplotlib and are not
 # required by the GUI are included here. The goal is for this to be as
 # lightweight as possible by default.
-class matplotlib::pip_requirements (
+class matplotlib::requirements (
   $install_latex = $matplotlib::params::install_latex,
 ) inherits matplotlib::params {
 
